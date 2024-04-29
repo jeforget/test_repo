@@ -13,13 +13,13 @@ from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
 
-app.secret_key = '13513ijnijdsuia7safv'
-
 limiter = Limiter(
     app,
     key_func=get_remote_address,
     default_limits=["200", "50 per hour"]
 )
+
+app.secret_key = '13513ijnijdsuia7safv'
 
 upload_folder = os.path.join('static', 'profilePics')
 app.config['UPLOAD'] = upload_folder
